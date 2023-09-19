@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SqlHotelDB", "SqlHotelDB\SqlHotelDB.sqlproj", "{5CBC5916-455E-418B-BB60-4CEC7136F949}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelManagementLibrary", "HotelManagementLibrary\HotelManagementLibrary.csproj", "{C4E8A569-0E64-4F5B-B67F-754EF709BEC1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{5CBC5916-455E-418B-BB60-4CEC7136F949}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CBC5916-455E-418B-BB60-4CEC7136F949}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5CBC5916-455E-418B-BB60-4CEC7136F949}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C4E8A569-0E64-4F5B-B67F-754EF709BEC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4E8A569-0E64-4F5B-B67F-754EF709BEC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4E8A569-0E64-4F5B-B67F-754EF709BEC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4E8A569-0E64-4F5B-B67F-754EF709BEC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
