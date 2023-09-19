@@ -1,4 +1,7 @@
 ﻿CREATE TABLE [dbo].[GuestsTable]
 (
-	[Id] INT NOT NULL PRIMARY KEY
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [FirstName] NVARCHAR(20) NOT NULL, 
+    [LastName] NVARCHAR(20) NOT NULL, 
+    [Email] NVARCHAR(50) NOT NULL
 )
