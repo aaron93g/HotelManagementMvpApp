@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{5cbc5916-455e-418b-bb60-4cec7136f949}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -58,13 +58,18 @@
     <Folder Include="Properties" />
     <Folder Include="dbo" />
     <Folder Include="dbo\tables" />
+    <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\tables\RoomTypeTable.sql" />
     <Build Include="dbo\tables\RoomsTable.sql" />
     <Build Include="dbo\tables\GuestsTable.sql" />
+    <Build Include="dbo\tables\BookingsTable.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="SqlHotelDB.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
   </ItemGroup>
 </Project>

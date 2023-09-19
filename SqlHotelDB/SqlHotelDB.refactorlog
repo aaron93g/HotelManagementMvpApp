@@ -14,4 +14,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="[FK_RoomsTable_RoomTypeTable]" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="4cbea748-28ee-4da1-a632-a8d5b01492cb" ChangeDateTime="09/18/2023 20:34:03">
+    <Property Name="ElementName" Value="[dbo].[BookingsTable].[CheckIn]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[BookingsTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="GuestId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="af3aefa2-4c18-4adc-b388-8157db45c48c" ChangeDateTime="09/18/2023 20:56:19">
+    <Property Name="ElementName" Value="[dbo].[FK_BookingsTable_]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[BookingsTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_BookingsTable_RoomsTable]" />
+  </Operation>
 </Operations>
