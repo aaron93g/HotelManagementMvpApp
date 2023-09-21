@@ -11,8 +11,12 @@ namespace HotelManagementLibrary.DataBases
 {
     public class SqlDataAccess
     {
-        public List<T> LoadData<T, U>(string sqlStatement, U parameter, string connectionString)
+        private readonly IConfiguration _config;
+
+        public SqlDataAccess(IConfiguration config)
         {
+            _config = config;
+        }
             using (IDbConnection connection = new SqlConnection(connectionString))
             {
                 List<T> rows = connection.Query<T>(sqlStatement, parameter).ToList();
