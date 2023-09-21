@@ -19,5 +19,13 @@ namespace HotelManagementLibrary.DataBases
                 return rows;
             }
         }
+
+        public void SaveData<T>(string sqlStatement, T parameter, string connectionString)
+        {
+            using (IDbConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Execute(sqlStatement, parameter);
+            }
+        }
     }
 }
