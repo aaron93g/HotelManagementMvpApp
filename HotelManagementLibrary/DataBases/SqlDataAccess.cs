@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace HotelManagementLibrary.DataBases
 {
-    public class SqlDataAccess
+    public class SqlDataAccess : ISqlDataAccess
     {
         private readonly IConfiguration _config;
 
@@ -23,7 +23,7 @@ namespace HotelManagementLibrary.DataBases
         {
             string connectionString = _config.GetConnectionString(connectionStringName);
             CommandType commandType = CommandType.Text;
-            if(isStoredProcedure == true)
+            if (isStoredProcedure == true)
             {
                 commandType = CommandType.StoredProcedure;
             }
@@ -39,7 +39,7 @@ namespace HotelManagementLibrary.DataBases
         {
             string connectionString = _config.GetConnectionString(connectionStringName);
             CommandType commandType = CommandType.Text;
-            if(isStoredProcedure == true)
+            if (isStoredProcedure == true)
             {
                 commandType = CommandType.StoredProcedure;
             }
