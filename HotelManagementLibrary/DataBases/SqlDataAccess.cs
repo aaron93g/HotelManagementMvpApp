@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -39,7 +40,7 @@ namespace HotelManagementLibrary.DataBases
             string connectionString = _config.GetConnectionString(connectionStringName);
             CommandType commandType = CommandType.Text;
             if(isStoredProcedure == true)
-        {
+            {
                 commandType = CommandType.StoredProcedure;
             }
 
