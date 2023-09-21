@@ -34,11 +34,18 @@ namespace HotelManagementLibrary.DataBases
             }
         }
 
-        public void SaveData<T>(string sqlStatement, T parameter, string connectionString)
+        public void SaveData<T>(string sqlStatement, T parameter, string connectionStringName, bool isStoredProcedure = false)
         {
+            string connectionString = _config.GetConnectionString(connectionStringName);
+            CommandType commandType = CommandType.Text;
+            if(isStoredProcedure == true)
+        {
+                commandType = CommandType.StoredProcedure;
+            }
+
             using (IDbConnection connection = new SqlConnection(connectionString))
             {
-                connection.Execute(sqlStatement, parameter);
+                connection.Execute(sqlStatement, parameter, commandType: commandType);
             }
         }
     }
