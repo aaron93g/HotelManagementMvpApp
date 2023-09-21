@@ -17,9 +17,19 @@ namespace HotelManagementLibrary.DataBases
         {
             _config = config;
         }
+
+        public List<T> LoadData<T, U>(string sqlStatement, U parameter, string connectionStringName, bool isStoredProcedure = false)
+        {
+            string connectionString = _config.GetConnectionString(connectionStringName);
+            CommandType commandType = CommandType.Text;
+            if(isStoredProcedure == true)
+            {
+                commandType = CommandType.StoredProcedure;
+            }
+
             using (IDbConnection connection = new SqlConnection(connectionString))
             {
-                List<T> rows = connection.Query<T>(sqlStatement, parameter).ToList();
+                List<T> rows = connection.Query<T>(sqlStatement, parameter, commandType: commandType).ToList();
                 return rows;
             }
         }
