@@ -10,6 +10,6 @@ namespace HotelManagementLibrary.Models
     {
         public int RoomId { get; set; }
         public string RoomNumberString { get; set; }
-        public RoomTypeModel RoomType { get; set; }
+        public int RoomType { get; set; }
     }
 }

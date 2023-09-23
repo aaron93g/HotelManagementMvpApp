@@ -11,5 +11,6 @@ namespace HotelManagementLibrary.Models
         public int RoomTypeId { get; set; }
         public string RoomTypeTitle { get; set; }
         public string RoomTypeDescription { get; set; }
+        public decimal RoomTypePrice { get; set; }
     }
 }
