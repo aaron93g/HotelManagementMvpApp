@@ -9,6 +9,12 @@ namespace HotelManagementLibrary.Data.CRUD
 {
     public class DataCrud
     {
+        string connection = "Default";
+        private readonly ISqlDataAccess _db;
+        public DataCrud(ISqlDataAccess db)
+        {
+            _db = db;
+        }
         
         private readonly SqlDataAccess db;
         public DataCrud(SqlDataAccess connectionString)
