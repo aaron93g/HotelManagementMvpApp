@@ -59,13 +59,17 @@
     <Folder Include="dbo" />
     <Folder Include="dbo\tables" />
     <Folder Include="Scripts" />
+    <Folder Include="dbo\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\tables\RoomTypeTable.sql" />
     <Build Include="dbo\tables\RoomsTable.sql" />
     <Build Include="dbo\tables\GuestsTable.sql" />
     <Build Include="dbo\tables\BookingsTable.sql" />
-    <Build Include="dbo\spRoomTypeTable_GetAvailableTypes.sql" />
+    <Build Include="dbo\Stored Procedures\spRoomTypeTable_GetAvailableTypes.sql" />
+    <Build Include="dbo\Stored Procedures\spGuests_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\spRooms_GetAvailableRooms.sql" />
+    <Build Include="dbo\Stored Procedures\spBookings_Insert.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="SqlHotelDB.refactorlog" />
