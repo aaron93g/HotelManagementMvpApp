@@ -7,7 +7,7 @@
 AS
 BEGIN
 	
-	select r.RoomNumber, rt.Title, g.FirstName, g.LastName, b.StartDate, b.EndDate, b.CheckedIn, rt.Price, b.TotalCost
+	select b.Id, r.RoomNumber, rt.Title, g.FirstName, g.LastName, b.StartDate, b.EndDate, b.CheckedIn, rt.Price, b.TotalCost
 from dbo.BookingsTable b
 inner join dbo.GuestsTable g on g.Id = b.GuestId
 inner join dbo.RoomsTable r on r.Id = b.RoomId
