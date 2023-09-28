@@ -8,6 +8,7 @@ namespace HotelManagementLibrary.Models
 {
     public class SearchedReservations
     {
+        public int BookingsId { get; set; }
         public string ReservationRoomNumber { get; set; }
         public string ReservationRoomTitle { get; set; }
         public string ReservationFirstName { get; set; }
