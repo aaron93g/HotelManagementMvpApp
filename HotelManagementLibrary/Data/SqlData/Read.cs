@@ -1,4 +1,5 @@
-﻿using HotelManagementLibrary.DataBases;
+﻿using HotelManagementLibrary.Data.DataInterfaces;
+using HotelManagementLibrary.DataBases;
 using HotelManagementLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -8,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace HotelManagementLibrary.Data.SqlData
 {
-    public class ReadData
+    public class Read : IRead
     {
         string connection = "Default";
         private readonly ISqlDataAccess _db;
-        public ReadData(ISqlDataAccess db)
+        public Read(ISqlDataAccess db)
         {
             _db = db;
         }

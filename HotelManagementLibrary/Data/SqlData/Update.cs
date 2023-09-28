@@ -1,4 +1,5 @@
-﻿using HotelManagementLibrary.DataBases;
+﻿using HotelManagementLibrary.Data.DataInterfaces;
+using HotelManagementLibrary.DataBases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HotelManagementLibrary.Data.SqlData
 {
-    public class Update
+    public class Update : IUpdate
     {
         string connection = "Default";
         private readonly ISqlDataAccess _db;
@@ -20,7 +21,7 @@ namespace HotelManagementLibrary.Data.SqlData
         {
 
             _db.SaveData("spBookings_CheckIn",
-                        new {bookingId},
+                        new { bookingId },
                         connection,
                         true);
         }
