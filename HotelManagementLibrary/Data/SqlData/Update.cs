@@ -20,7 +20,7 @@ namespace HotelManagementLibrary.Data.SqlData
         {
 
             _db.SaveData("spBookings_CheckIn",
-                        new {bookingId, checkingIn = 1},
+                        new {bookingId},
                         connection,
                         true);
         }
