@@ -32,5 +32,17 @@ namespace HotelManagementLibrary.Data.SqlData
                                                        connection,
                                                        true);
         }
+
+
+        public List<SearchedReservations> SearchBooking(string firstName, string lastName)
+        {
+            DateTime todaysDate = DateTime.Now.Date;
+
+            List<SearchedReservations> listOfReservations = _db.LoadData<SearchedReservations, dynamic>("dbo.spBookings_FindReservation",
+                                                                                                  new { firstName, lastName, todaysDate },
+                                                                                                  connection,
+                                                                                                  true);
+            return listOfReservations;
+        }
     }
 }
