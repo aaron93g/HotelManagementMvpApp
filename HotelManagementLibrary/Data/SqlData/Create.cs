@@ -47,7 +47,7 @@ namespace HotelManagementLibrary.Data.SqlData
                              guestId = guest.GuestId,
                              startDate = startDate,
                              endDate = endDate,
-                             totalCost = stayDuration.Days * roomType.RoomTypePrice
+                             totalCost = stayDuration.Days * roomType.Price
                          },
                          connection,
                          true);
