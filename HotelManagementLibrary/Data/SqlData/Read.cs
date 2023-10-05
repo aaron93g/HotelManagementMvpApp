@@ -11,7 +11,7 @@ namespace HotelManagementLibrary.Data.SqlData
 {
     public class Read : IRead
     {
-        string connection = "Default";
+        private const string connection = "Default";
         private readonly ISqlDataAccess _db;
         public Read(ISqlDataAccess db)
         {
@@ -21,14 +21,13 @@ namespace HotelManagementLibrary.Data.SqlData
 
         //READ
 
-        //Get RoomTypes
         public List<RoomTypeModel> GetRoomOptions(DateTime startDate, DateTime endDate)
         {
-            RoomModel room = new RoomModel();
+         
             string sqlStatement = "";
 
-            sqlStatement = "dbo.spRoomTypeTable_GetAvailableTypes;";
-            return _db.LoadData<RoomTypeModel, dynamic>(sqlStatement,
+            sqlStatement = "dbo.spRoomTypeTable_GetAvailableTypes";
+            return _db.LoadData<RoomTypeModel, dynamic>("dbo.spRoomTypeTable_GetAvailableTypes",
                                                        new { startDate, endDate },
                                                        connection,
                                                        true);
