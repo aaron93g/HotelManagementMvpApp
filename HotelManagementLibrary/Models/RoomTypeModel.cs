@@ -8,9 +8,9 @@ namespace HotelManagementLibrary.Models
 {
     public class RoomTypeModel
     {
-        public int RoomTypeId { get; set; }
-        public string RoomTypeTitle { get; set; }
-        public string RoomTypeDescription { get; set; }
-        public decimal RoomTypePrice { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public decimal Price { get; set; }
     }
 }

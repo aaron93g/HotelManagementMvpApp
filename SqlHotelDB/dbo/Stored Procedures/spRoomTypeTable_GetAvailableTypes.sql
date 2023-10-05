@@ -6,9 +6,9 @@ Begin
 	set nocount on;
 
 	select rt.Id, rt.Title, rt.Description, rt.Price
-from dbo.RoomsTable r
-inner join dbo.RoomTypeTable rt on r.RoomTypeId = rt.Id
-where r.Id not in (
+	from dbo.RoomTypeTable rt
+	inner join dbo.RoomsTable r on r.RoomTypeId = rt.Id
+	where r.Id not in (
 
 --selects the RoomId that is interefered by the new booking(dates)
 select b.RoomId
