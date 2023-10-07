@@ -43,7 +43,7 @@ namespace HotelManagementLibrary.Data.SqlData
             _db.SaveData("dbo.spBookings_Insert",
                          new
                          {
-                             roomId = availableRooms.First().RoomId,
+                             roomId = availableRooms.First().Id,
                              guestId = guest.GuestId,
                              startDate = startDate,
                              endDate = endDate,
