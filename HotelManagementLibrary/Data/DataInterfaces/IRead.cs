@@ -6,5 +6,6 @@ namespace HotelManagementLibrary.Data.DataInterfaces
     {
         List<RoomTypeModel> GetRoomOptions(DateTime startDate, DateTime endDate);
         List<SearchedReservations> SearchBooking(string firstName, string lastName);
+        (int roomType1, int roomType2) GetOptionsCount(DateTime startDate, DateTime endDate);
     }
 }
