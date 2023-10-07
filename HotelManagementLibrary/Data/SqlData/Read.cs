@@ -42,7 +42,7 @@ namespace HotelManagementLibrary.Data.SqlData
 
         public List<RoomTypeModel> GetRoomOptions(DateTime startDate, DateTime endDate)
         {
-         
+                    
             return _db.LoadData<RoomTypeModel, dynamic>("dbo.spRoomTypeTable_GetAvailableTypes",
                                                        new { startDate, endDate },
                                                        connection,

@@ -8,8 +8,8 @@ namespace HotelManagementLibrary.Models
 {
     public class RoomModel
     {
-        public int RoomId { get; set; }
-        public string RoomNumberString { get; set; }
-        public int RoomType { get; set; }
+        public int Id { get; set; }
+        public string RoomNumber { get; set; }
+        public int RoomTypeId { get; set; }
     }
 }
