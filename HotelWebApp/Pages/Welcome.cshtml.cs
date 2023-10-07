@@ -23,6 +23,8 @@ namespace HotelWebApp.Pages
 
         public List<RoomTypeModel> RoomOptions { get; set; }
 
+        public (int roomType1, int roomType2) TypeCount { get; set; }
+
         public WelcomeModel(IRead read)
         {
             _read = read;
@@ -33,6 +35,7 @@ namespace HotelWebApp.Pages
             if(SearchEnabled == true)
             {
                 RoomOptions = _read.GetRoomOptions(StartDate, EndDate);
+                TypeCount = _read.GetOptionsCount(StartDate, EndDate);
             }
         }
 
