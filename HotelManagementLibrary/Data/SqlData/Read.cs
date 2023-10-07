@@ -24,9 +24,6 @@ namespace HotelManagementLibrary.Data.SqlData
         public List<RoomTypeModel> GetRoomOptions(DateTime startDate, DateTime endDate)
         {
          
-            string sqlStatement = "";
-
-            sqlStatement = "dbo.spRoomTypeTable_GetAvailableTypes";
             return _db.LoadData<RoomTypeModel, dynamic>("dbo.spRoomTypeTable_GetAvailableTypes",
                                                        new { startDate, endDate },
                                                        connection,
