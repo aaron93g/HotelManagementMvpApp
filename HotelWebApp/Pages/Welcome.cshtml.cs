@@ -19,6 +19,12 @@ namespace HotelWebApp.Pages
         public DateTime EndDate { get; set; } = DateTime.Now;
 
         [BindProperty (SupportsGet = true)]
+        public int roomType1Choice { get; set; }
+
+        [BindProperty (SupportsGet = true)]
+        public int roomType2Choice { get; set; }
+
+        [BindProperty (SupportsGet = true)]
         public bool SearchEnabled { get; set; } = false;
 
         public List<RoomTypeModel> RoomOptions { get; set; }
@@ -41,7 +47,13 @@ namespace HotelWebApp.Pages
 
         public IActionResult OnPost()
         {
-            return RedirectToPage(new { SearchEnabled = true, StartDate, EndDate});
+
+            return RedirectToPage(new { 
+                                    SearchEnabled = true, 
+                                    StartDate = StartDate.ToString(format: "yyyy-MM-dd"), 
+                                    EndDate = EndDate.ToString(format: "yyyy-MM-dd"),
+                                    roomType1Choice = roomType1Choice,
+                                    roomType2Choice = roomType2Choice});
         }
     }
 }
