@@ -45,7 +45,7 @@
                         <tr>
                             <td>@roomType.Title</td>
                             <td>@roomType.Description</td>
-                            <td>@roomType.Price</td>
+                            <td>@string.Format("{0:C}", roomType.Price)</td>
                         </tr>
                     }
                 </tbody>
