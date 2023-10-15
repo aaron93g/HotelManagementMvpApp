@@ -81,7 +81,12 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col">
-                            <button asp-page="/Index" id="selectRoom" class="btn btn-primary">submit</button>
+                            <button asp-page="/Booking"
+                                    asp-route-startDate="@Model.StartDate.ToShortDateString()"
+                                    asp-route-endDate="@Model.EndDate.ToShortDateString()"
+                                    @*  RoomType1 & number selected on dropDown list asp-route-
+                                     RoomType2 & number selected on dropDown list *@
+                                     class="btn btn-primary">submit</button> 
                         </div>
                     </div>
                 </div>
