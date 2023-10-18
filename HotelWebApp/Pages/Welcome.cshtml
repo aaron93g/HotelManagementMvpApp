@@ -84,8 +84,8 @@
                             <button asp-page="/Booking"
                                     asp-route-startDate="@Model.StartDate.ToShortDateString()"
                                     asp-route-endDate="@Model.EndDate.ToShortDateString()"
-                                    @*  RoomType1 & number selected on dropDown list asp-route-
-                                     RoomType2 & number selected on dropDown list *@
+                                    asp-route-roomType1="@Model.roomType1Choice"
+                                    asp-route-roomType2="@Model.roomType2Choice"
                                      class="btn btn-primary">submit</button> 
                         </div>
                     </div>
