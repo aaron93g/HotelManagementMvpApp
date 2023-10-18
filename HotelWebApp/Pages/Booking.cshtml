@@ -4,4 +4,23 @@
     ViewData["Title"] = "Booking";
 }
 
-
+<div class="text-center">
+    <div class="container">
+        <div class="row ">
+            <div class="col">
+                <h1> Confirm Booking</h1>
+            </div>
+        </div>
+    
+        @if (Model.RoomType1Choice > 0)
+        {
+            <div class="row">
+                <div class="col ">
+                    <p>
+                        You have selected @Model.RoomType1Choice rooms
+                    </p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
