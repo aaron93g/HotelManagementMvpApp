@@ -19,7 +19,6 @@ namespace HotelManagementLibrary.Data.SqlData
         }
 
 
-        //READ
 
 
         public (int roomType1, int roomType2) GetOptionsCount(DateTime startDate, DateTime endDate)
