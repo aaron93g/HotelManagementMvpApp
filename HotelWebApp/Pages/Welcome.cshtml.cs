@@ -27,6 +27,7 @@ namespace HotelWebApp.Pages
         [BindProperty (SupportsGet = true)]
         public bool SearchEnabled { get; set; } = false;
 
+        [BindProperty(SupportsGet = true)]
         public List<RoomTypeModel> RoomOptions { get; set; }
 
         public (int roomType1, int roomType2) TypeCount { get; set; }
@@ -53,7 +54,9 @@ namespace HotelWebApp.Pages
                                     StartDate = StartDate.ToString(format: "yyyy-MM-dd"), 
                                     EndDate = EndDate.ToString(format: "yyyy-MM-dd"),
                                     roomType1Choice = roomType1Choice,
-                                    roomType2Choice = roomType2Choice});
+                                    roomType2Choice = roomType2Choice,
+                                    RoomOptions = RoomOptions // might need to move to another post name handler
+                                    });
         }
     }
 }
