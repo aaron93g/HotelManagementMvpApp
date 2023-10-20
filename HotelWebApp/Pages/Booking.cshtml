@@ -11,16 +11,33 @@
                 <h1> Confirm Booking</h1>
             </div>
         </div>
-    
-        @if (Model.RoomType1Choice > 0)
+
+
+        @if (@Model.roomType1Choice > 0)
         {
-            <div class="row">
-                <div class="col ">
-                    <p>
-                        You have selected @Model.RoomType1Choice rooms
-                    </p>
-                </div>
-            </div>
-        }
+            <div class="container justify-content-center w-50">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Stay Dates</th>
+                            <th scope="col">Stay Count</th>
+                            <th scope="col">Room Option</th>
+                            <th scope="col">Room Price per Night</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                            <td>@Model.StartDate.ToShortDateString() - @Model.EndDate.ToShortDateString()</td>
+                            <td>@Model.EndDate.Subtract(Model.StartDate).Days</td>
+                            @* <td>@Model.RoomOptions[0].Description</td>
+                            <td>@string.Format("{0:C}", Model.RoomOptions[0].Price)</td> *@
+                            </tr>
+                    </tbody>
+            </table>
+
+        </div>
+    }
+    
     </div>
 </div>
