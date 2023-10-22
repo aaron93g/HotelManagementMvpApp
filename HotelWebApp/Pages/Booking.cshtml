@@ -29,9 +29,13 @@
                     <tbody>
                             <tr>
                             <td>@Model.StartDate.ToShortDateString() - @Model.EndDate.ToShortDateString()</td>
-                            <td>@Model.EndDate.Subtract(Model.StartDate).Days</td>
-                            @* <td>@Model.RoomOptions[0].Description</td>
-                            <td>@string.Format("{0:C}", Model.RoomOptions[0].Price)</td> *@
+                            <td>@{
+                                    int days;
+                                    days = Model.EndDate.Subtract(Model.StartDate).Days + 1;
+                                    <text>@days</text>
+                                }</td>
+                            <td>@Model.RoomOptions[0].Description</td>
+                            <td>@string.Format("{0:C}", Model.RoomOptions[0].Price)</td>
                             </tr>
                     </tbody>
             </table>
