@@ -22,11 +22,12 @@
             
             <div class="row mt-3">
                 <div class="col">
-                    <button class="btn btn-primary">submit</button>
+                    <button class="btn btn-primary" asp-page-handler="dates">submit</button>
                 </div>
             </div>
-        </div>  
-    </form>
+        </div>
+
+    
 
     @if(Model.RoomOptions?.Count > 0)
     {
@@ -52,8 +53,9 @@
             </table>
 
         </div>
+    
 
-        <form method="post">
+        @* <form asp-page-handler="booking" method="get"> *@
             <div class="container">
                 <div class="row justify-content-center">
                     <h4>Choose how many rooms you would like:</h4>
@@ -81,20 +83,14 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col">
-                            <button asp-page="/Booking"
-                                    asp-route-startDate="@Model.StartDate"
-                                    asp-route-endDate="@Model.EndDate"
-                                    asp-route-roomType1="@Model.roomType1Choice"
-                                    asp-route-roomType2="@Model.roomType2Choice"
-                                    asp-route-RoomOptions="@Model.RoomOptions" 
-                                     class="btn btn-primary">submit</button> 
+                            <button class="btn btn-primary" asp-page-handler="booking">submit</button> 
                         </div>
                     </div>
                 </div>
             </div>
-        </form>
+        @* </form> *@
     }
 
+    </form>
 
-    
 </div>

@@ -46,16 +46,28 @@ namespace HotelWebApp.Pages
             }
         }
 
-        public IActionResult OnPost()
+        public IActionResult OnPostBooking()
+        {
+
+            
+            return RedirectToPage("/booking" ,new // how to pass routevalues in a redirectpage
+            {
+                StartDate = StartDate,
+                EndDate = EndDate,
+                roomType1Choice = roomType1Choice,
+                roomType2Choice = roomType2Choice,
+            });
+        }
+
+        public IActionResult OnPostDates()
         {
 
             return RedirectToPage(new { 
-                                    SearchEnabled = true, 
+                                    SearchEnabled = true,        
                                     StartDate = StartDate.ToString(format: "yyyy-MM-dd"), 
                                     EndDate = EndDate.ToString(format: "yyyy-MM-dd"),
                                     roomType1Choice = roomType1Choice,
                                     roomType2Choice = roomType2Choice,
-                                    RoomOptions = RoomOptions // might need to move to another post name handler
                                     });
         }
     }
