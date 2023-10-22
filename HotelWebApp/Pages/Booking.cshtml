@@ -4,44 +4,122 @@
     ViewData["Title"] = "Booking";
 }
 
-<div class="text-center">
-    <div class="container">
-        <div class="row ">
-            <div class="col">
-                <h1> Confirm Booking</h1>
+
+<form >
+    <div class="text-center">
+        <div class="container">
+            <div class="row ">
+                <div class="col">
+                    <h1> Confirm Booking</h1>
+                </div>
             </div>
-        </div>
 
 
-        @if (@Model.roomType1Choice > 0)
-        {
-            <div class="container justify-content-center w-50">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Stay Dates</th>
-                            <th scope="col">Stay Count</th>
-                            <th scope="col">Room Option</th>
-                            <th scope="col">Room Price per Night</th>
-                            <th scope="col">Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            @if (@Model.roomType1Choice > 0)
+            {
+                <div class="row">
+                    <table class="table">
+                        <thead>
                             <tr>
-                            <td>@Model.StartDate.ToShortDateString() - @Model.EndDate.ToShortDateString()</td>
-                            <td>@{
-                                    int days;
-                                    days = Model.EndDate.Subtract(Model.StartDate).Days + 1;
-                                    <text>@days</text>
-                                }</td>
-                            <td>@Model.RoomOptions[0].Description</td>
-                            <td>@string.Format("{0:C}", Model.RoomOptions[0].Price)</td>
+                                <th scope="col">Stay Dates</th>
+                                <th scope="col">Stay Count</th>
+                                <th scope="col">Room Option</th>
+                                <th scope="col">Amount of Rooms selected</th>
+                                <th scope="col">Room Price per Night</th>
+                                <th scope="col">Total</th>
                             </tr>
-                    </tbody>
-            </table>
+                        </thead>
+                        <tbody>
+                                <tr>
+                                <td>@Model.StartDate.ToShortDateString() - @Model.EndDate.ToShortDateString()</td>
+                                <td>@{
+                                        int days;
+                                        days = Model.EndDate.Subtract(Model.StartDate).Days + 1;
+                                        <text>@days</text>
+                                    }</td>
+                                <td>@Model.RoomOptions[0].Description</td>
+                                <td>@Model.roomType1Choice</td>
+                                <td>@string.Format("{0:C}", Model.RoomOptions[0].Price)</td>
+                                <td>
+                                    @{
+                                        decimal roomsPerNight = Model.RoomOptions[0].Price * Model.roomType1Choice;
+                                        Model.StayTotal1 = roomsPerNight * days;
+                                        <text>@string.Format("{0:C}", Model.StayTotal1)</text>;                                   ;                                    ;
+                                    }
+                                </td>
+                                </tr>
+                        </tbody>
+                    </table>
 
-        </div>
-    }
+                </div>
+            }
+
+            @if (@Model.roomType2Choice > 0)
+            {
+                <div class="row">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Stay Dates</th>
+                                <th scope="col">Stay Count</th>
+                                <th scope="col">Room Option</th>
+                                <th scope="col">Amount of Rooms selected</th>
+                                <th scope="col">Room Price per Night</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Model.StartDate.ToShortDateString() - @Model.EndDate.ToShortDateString()</td>
+                                <td>
+                                    @{
+                                        int days;
+                                        days = Model.EndDate.Subtract(Model.StartDate).Days + 1;
+                                        <text>@days</text>
+                                    }
+                                </td>
+                                <td>@Model.RoomOptions[1].Description</td>
+                                <td>@Model.roomType2Choice</td>
+                                <td>@string.Format("{0:C}", Model.RoomOptions[1].Price)</td>
+                                <td>
+                                    @{
+                                        decimal roomsPerNight = Model.RoomOptions[1].Price * Model.roomType2Choice;
+                                        Model.StayTotal2 = roomsPerNight * days;
+                                        <text>@string.Format("{0:C}", Model.StayTotal2)</text>
+                                        ;
+                                    }
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            }
+
+
+
+            <div class=" mt-5">
+                <label asp-for="FirstName"> First Name</label>
+                <input asp-for="FirstName" />
+            </div>
+            <div class=" p-md-2 ">
+                <label asp-for="LastName"> Last Name</label>
+                <input asp-for="LastName" />
+            </div>
+
+            <h2>
+                @{
+                     decimal overallTotal = Model.StayTotal1 + Model.StayTotal2;
+                    <text> Overall Total @string.Format("{0:C}", overallTotal)</text>
+                }
+            </h2>
+
+            <div class="row mt-3">
+                <div class="col">
+                    <button class="btn btn-primary" asp-page-handler="reserve">Confirm</button>
+                </div>
+            </div>
     
+        </div>
     </div>
-</div>
+</form>

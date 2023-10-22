@@ -24,6 +24,18 @@ namespace HotelWebApp.Pages
         [BindProperty] // ? use static session(cookies) ?use multiple named handler methods
         public List<RoomTypeModel> RoomOptions { get ; set ; }
 
+        [BindProperty]
+        public decimal StayTotal1 { get; set; }
+
+        [BindProperty]
+        public decimal StayTotal2 { get; set; }
+
+        [BindProperty]
+        public string FirstName { get; set; }
+
+        [BindProperty]
+        public string LastName { get; set; }
+
         public BookingModel(IRead read)
         {
             _read = read;
