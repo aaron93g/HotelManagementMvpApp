@@ -21,17 +21,21 @@ namespace HotelWebApp.Pages
         [BindProperty(SupportsGet = true)]
         public int roomType2Choice { get; set; }
 
-        [BindProperty(SupportsGet = true)] // ? use static session(cookies) ?use multiple named handler methods
+        [BindProperty] // ? use static session(cookies) ?use multiple named handler methods
         public List<RoomTypeModel> RoomOptions { get ; set ; }
 
-        //public BookingModel(IRead read)
-        //{
-        //    _read = read;
-        //}
+        public BookingModel(IRead read)
+        {
+            _read = read;
+        }
 
         public void OnGet()
         {
-            //RoomOptions = _read.GetRoomOptions(StartDate, EndDate);
+            StartDate = StartDate;
+            EndDate = EndDate;
+            roomType1Choice = roomType1Choice;
+            roomType2Choice = roomType2Choice;
+            RoomOptions = _read.GetRoomOptions(StartDate, EndDate);
         }
     }
 }
