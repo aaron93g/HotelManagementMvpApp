@@ -18,36 +18,36 @@ namespace HotelWebApp.Pages
         [BindProperty(SupportsGet = true)]
         public int roomType1Choice { get; set; }
 
-        [BindProperty(SupportsGet = true)]
-        public int roomType2Choice { get; set; }
+        [BindProperty(SupportsGet = true)] 
+        public int roomType2Choice { get; set; } 
 
-        [BindProperty] // ? use static session(cookies) ?use multiple named handler methods
-        public List<RoomTypeModel> RoomOptions { get ; set ; }
+        [BindProperty] 
+        public List<RoomTypeModel> RoomOptions { get ; set ; } 
 
-        [BindProperty]
-        public decimal StayTotal1 { get; set; }
+        [BindProperty] 
+        public decimal StayTotal1 { get; set; } 
 
-        [BindProperty]
-        public decimal StayTotal2 { get; set; }
+        [BindProperty] 
+        public decimal StayTotal2 { get; set; } 
 
-        [BindProperty]
-        public string FirstName { get; set; }
+        [BindProperty] 
+        public string FirstName { get; set; } 
 
-        [BindProperty]
-        public string LastName { get; set; }
+        [BindProperty] 
+        public string LastName { get; set; } 
 
-        public BookingModel(IRead read)
+        public BookingModel(IRead read) 
         {
-            _read = read;
+            _read = read; 
         }
 
-        public void OnGet()
-        {
-            StartDate = StartDate;
-            EndDate = EndDate;
-            roomType1Choice = roomType1Choice;
-            roomType2Choice = roomType2Choice;
-            RoomOptions = _read.GetRoomOptions(StartDate, EndDate);
-        }
+        public void OnGet() 
+        { 
+            StartDate = StartDate; 
+            EndDate = EndDate; 
+            roomType1Choice = roomType1Choice; 
+            roomType2Choice = roomType2Choice; 
+            RoomOptions = _read.GetRoomOptions(StartDate, EndDate); 
+        } 
     }
 }
