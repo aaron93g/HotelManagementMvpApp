@@ -18,39 +18,83 @@ namespace HotelManagementLibrary.Data.SqlData
             _db = db;
         }
 
-        public void Booking(string firstName,
+        public void Booking(string firstName, 
                             string lastName,
                             DateTime startDate,
                             DateTime endDate,
-                            int roomTypeId)
+                            int roomType1Choice,
+                            int roomType2Choice)
         {
-            GuestModel guest = _db.LoadData<GuestModel, dynamic>("spGuests_Insert",
-                                                                 new { firstName, lastName },
-                                                                 connection,
-                                                                 true).First();
+             if(roomType1Choice > 0)
+            {
+                for (int i = 0; roomType1Choice > i; i++)
+                {
 
-            RoomTypeModel roomType = _db.LoadData<RoomTypeModel, dynamic>("select * from dbo.RoomTypeTable where Id = @roomTypeId",
-                                                                          new { roomTypeId },
-                                                                          connection).First();
+                    GuestModel guest = _db.LoadData<GuestModel, dynamic>("spGuests_Insert",
+                                                     new { firstName, lastName },
+                                                     connection,
+                                                     true).First();
 
-            TimeSpan stayDuration = endDate.Subtract(startDate);
+                    RoomTypeModel roomType = _db.LoadData<RoomTypeModel, dynamic>("select * from dbo.RoomTypeTable where Id = @roomTypeId",
+                                                                                  new { roomTypeId = 1 },
+                                                                                  connection).First();
 
-            List<RoomModel> availableRooms = _db.LoadData<RoomModel, dynamic>("dbo.spRooms_GetAvailableRooms",
-                                                                              new { startDate, endDate, roomTypeId },
-                                                                              connection,
-                                                                              true);
+                    TimeSpan stayDuration = endDate.Subtract(startDate);
 
-            _db.SaveData("dbo.spBookings_Insert",
-                         new
-                         {
-                             roomId = availableRooms.First().Id,
-                             guestId = guest.GuestId,
-                             startDate = startDate,
-                             endDate = endDate,
-                             totalCost = stayDuration.Days * roomType.Price
-                         },
-                         connection,
-                         true);
+                    List<RoomModel> availableRooms = _db.LoadData<RoomModel, dynamic>("dbo.spRooms_GetAvailableRooms",
+                                                                                      new { startDate, endDate, roomTypeId = 1 },
+                                                                                      connection,
+                                                                                      true);
+
+                    _db.SaveData("dbo.spBookings_Insert",
+                                 new
+                                 {
+                                     roomId = availableRooms.First().Id,
+                                     guestId = guest.GuestId,
+                                     startDate = startDate,
+                                     endDate = endDate,
+                                     totalCost = stayDuration.Days * roomType.Price
+                                 },
+                                 connection,
+                                 true);
+                }
+            }
+
+            if (roomType2Choice > 0)
+            {
+                for (int i = 0; roomType2Choice > i; i++)
+                {
+
+                    GuestModel guest = _db.LoadData<GuestModel, dynamic>("spGuests_Insert",
+                                                     new { firstName, lastName },
+                                                     connection,
+                                                     true).First();
+
+                    RoomTypeModel roomType = _db.LoadData<RoomTypeModel, dynamic>("select * from dbo.RoomTypeTable where Id = @roomTypeId",
+                                                                                  new { roomTypeId = 2 },
+                                                                                  connection).First();
+
+                    TimeSpan stayDuration = endDate.Subtract(startDate);
+
+                    List<RoomModel> availableRooms = _db.LoadData<RoomModel, dynamic>("dbo.spRooms_GetAvailableRooms",
+                                                                                      new { startDate, endDate, roomTypeId = 2 },
+                                                                                      connection,
+                                                                                      true);
+
+                    _db.SaveData("dbo.spBookings_Insert",
+                                 new
+                                 {
+                                     roomId = availableRooms.First().Id,
+                                     guestId = guest.GuestId,
+                                     startDate = startDate,
+                                     endDate = endDate,
+                                     totalCost = stayDuration.Days * roomType.Price
+                                 },
+                                 connection,
+                                 true);
+                }
+            }
+
         }
 
 
