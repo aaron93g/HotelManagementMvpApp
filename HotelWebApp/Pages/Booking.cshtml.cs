@@ -54,7 +54,7 @@ namespace HotelWebApp.Pages
             RoomOptions = _read.GetRoomOptions(StartDate, EndDate); 
         } 
 
-        public IActionResult OnPost() 
+        public void OnPostReserve()
         {
             _create.Booking(FirstName,
                             LastName,
@@ -63,7 +63,7 @@ namespace HotelWebApp.Pages
                             roomType1Choice,
                             roomType2Choice);
 
-            return RedirectToPage("/Index");
+            RedirectToPage("/Index");
         }
     }
 }
