@@ -13,4 +13,4 @@ It's a course by Tim Corey(https://www.youtube.com/@IAmTimCorey/featured), who t
 This course covers making a MVP app fairly well and in depth from early planning using the WOULD process, to project type design, and storage design. 
 
 
-more to follow
+# more to follow
